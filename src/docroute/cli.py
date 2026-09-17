@@ -40,7 +40,7 @@ def main(argv: list[str] | None = None) -> int:
             if args.format == "github":
                 # Annotation paths must be relative to the Actions working directory.
                 import os
-                path = os.path.relpath(args.root.resolve() / issue.file, Path.cwd())
+                path = Path(os.path.relpath(args.root.resolve() / issue.file, Path.cwd())).as_posix()
                 print(f"::error file={_escape(path, True)},line={issue.line}::{_escape(message)}")
             else:
                 print(f"{issue.file}:{issue.line}: {message}")
