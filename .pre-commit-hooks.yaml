@@ -1,0 +1,6 @@
+- id: docroute
+  name: Check local Markdown links with DocRoute
+  entry: docroute
+  language: python
+  pass_filenames: false
+  always_run: true

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docroute"
+version = "0.1.0"
+description = "An offline checker for local Markdown links and heading anchors"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Alireza Sharbafchi"}]
+dependencies = ["markdown-it-py>=3,<5"]
+keywords = ["markdown", "documentation", "links", "ci"]
+classifiers = ["Development Status :: 3 - Alpha", "Environment :: Console", "Operating System :: OS Independent", "Programming Language :: Python :: 3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "build>=1"]
+
+[project.scripts]
+docroute = "docroute.cli:main"
+
+[project.urls]
+Repository = "https://github.com/AlirezaSharbaf/docroute"
+Issues = "https://github.com/AlirezaSharbaf/docroute/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
